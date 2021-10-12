@@ -83,7 +83,7 @@ func preflight(){
 	viper.SetDefault(config.POSTGRES_USER,"postgis")
 	viper.SetDefault(config.POSTGRES_PASSWORD,"password")
 	viper.SetDefault(config.POSTGRES_PORT, 5432)
-	viper.SetDefault(config.POSTGRES_DATABASE, "plastic")
+	viper.SetDefault(config.POSTGRES_DATABASE, "boring")
 	viper.SetDefault(config.POSTGRES_READONLY, true)
 	viper.SetDefault(config.POSTGRES_FAILFAST, true)
 	viper.SetDefault(config.POSTGRES_USE_TABLE_PREFIX,true)
