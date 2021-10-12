@@ -1,24 +1,24 @@
 package catalog
 
 import (
-
-	"github.com/tingold/boring/model"
+	"github.com/tingold/boring/catalog/memory"
 )
 
-var catalog Catalog
+var catalog *memory.MemoryCatalog
 
-type Catalog interface {
-
-	Load() error
-	GetCollections() (*[]model.Collection, error)
-	GetCollection(id string)(*model.Collection, error)
-}
-
-func GetCatalog() (*Catalog, error){
+func GetCatalog() (*memory.MemoryCatalog, error){
 
 	//only supporting memory catalog right now -- in the future we can write to postgres
 	//if viper.GetBool(config.POSTGRES_READONLY){}
-	catalog = MemoryCatalog{}
-
-
+	if catalog == nil{
+		cat := memory.MemoryCatalog{}
+		err := cat.Load()
+		if err != nil {
+			return nil,err
+		}
+		catalog = &cat
+	}
+	return catalog, nil
 }
+
+

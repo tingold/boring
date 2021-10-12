@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/location"
 	gzap "github.com/gin-contrib/zap"
+	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 	"github.com/tingold/boring/config"
 	"github.com/tingold/boring/handlers"
@@ -83,9 +83,11 @@ func preflight(){
 	viper.SetDefault(config.POSTGRES_USER,"postgis")
 	viper.SetDefault(config.POSTGRES_PASSWORD,"password")
 	viper.SetDefault(config.POSTGRES_PORT, 5432)
-	viper.SetDefault(config.POSTGRES_DATABASE, "postgis")
+	viper.SetDefault(config.POSTGRES_DATABASE, "plastic")
 	viper.SetDefault(config.POSTGRES_READONLY, true)
 	viper.SetDefault(config.POSTGRES_FAILFAST, true)
+	viper.SetDefault(config.POSTGRES_USE_TABLE_PREFIX,true)
+	viper.SetDefault(config.POSTGRES_TABLE_PREFIX,"ne_")
 
 	viper.AutomaticEnv()
 
